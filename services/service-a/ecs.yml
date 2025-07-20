@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: '2011-09-09'
 Description: ECS Service Template
 Parameters:
   EnvType:
