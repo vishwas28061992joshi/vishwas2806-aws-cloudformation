@@ -3,8 +3,6 @@
     "EnvType": "dev",
     "VpcId": "vpc-12345678",
     "Subnets": "subnet-aaa,subnet-bbb",
-    "AlbSG": "sg-abcabc",
-    "ServiceName": "service-a",
-    "ContainerImage": "1234567890.dkr.ecr.ap-south-1.amazonaws.com/service-a:latest" }
+    "AlbSG": "sg-abcabc"
   }
 }
