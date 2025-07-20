@@ -1,1 +1,33 @@
-# Placeholder for infra.yml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Shared Infra (Cluster + ALB)
+Parameters:
+  EnvType:
+    Type: String
+  VpcId:
+    Type: String
+  Subnets:
+    Type: List<String>
+  AlbSG:
+    Type: String
+Resources:
+  ECSCluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Sub gw-${EnvType}
+  ALB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub gw-${EnvType}-alb
+      Subnets: !Ref Subnets
+      SecurityGroups: [!Ref AlbSG]
+      Scheme: internet-facing
+      Type: application
+Outputs:
+  ClusterName:
+    Value: !Ref ECSCluster
+    Export:
+      Name: !Sub ${EnvType}-cluster-name
+  AlbArn:
+    Value: !Ref ALB
+    Export:
+      Name: !Sub ${EnvType}-alb-arn

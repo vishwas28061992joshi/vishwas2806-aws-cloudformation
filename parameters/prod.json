@@ -1,1 +1,8 @@
-# Placeholder for prod.json
+[
+  { "ParameterKey": "EnvType", "ParameterValue": "prod" },
+  { "ParameterKey": "VpcId", "ParameterValue": "vpc-12345678" },
+  { "ParameterKey": "Subnets", "ParameterValue": "subnet-aaa,subnet-bbb" },
+  { "ParameterKey": "AlbSG", "ParameterValue": "sg-abcabc" },
+  { "ParameterKey": "ServiceName", "ParameterValue": "service-a" },
+  { "ParameterKey": "ContainerImage", "ParameterValue": "1234567890.dkr.ecr.ap-south-1.amazonaws.com/service-a:latest" }
+]
