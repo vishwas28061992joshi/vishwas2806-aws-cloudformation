@@ -1,8 +1,5 @@
 {
   "Parameters":{
-    "EnvType": "dev",
-    "VpcId": "vpc-12345678",
-    "Subnets": "subnet-aaa,subnet-bbb",
-    "AlbSG": "sg-abcabc"
+    "EnvType": "dev"
   }
 }
