@@ -1,13 +1,30 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Create a basic Amazon ECR repository
+Description: Create an ECR repository based on the environment (dev/qaa/prod)
+
+Parameters:
+  EnvType:
+    Type: String
+    Description: Environment name
+    AllowedValues:
+      - dev
+      - qaa
+      - prod
+    Default: dev
+
+  RepoName:
+    Type: String
+    Description: Base name of the ECR repository
+    Default: my-app
 
 Resources:
-  MyECRRepository:
+  ECRRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: my-shared-ecr-repo
+      RepositoryName: !Sub "${RepoName}-${EnvType}-shared"
       ImageScanningConfiguration:
         scanOnPush: true
       Tags:
         - Key: Name
-          Value: my-shared-ecr-repo
+          Value: !Sub "${RepoName}-${EnvType}-shared-tag"
+        - Key: Environment
+          Value: !Ref EnvType
