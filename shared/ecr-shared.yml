@@ -20,11 +20,11 @@ Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: !Sub "${RepoName}-${EnvType}-shared"
+      RepositoryName: !Sub "${RepoName}-${EnvType}-shared1"
       ImageScanningConfiguration:
         scanOnPush: true
       Tags:
         - Key: Name
-          Value: !Sub "${RepoName}-${EnvType}-shared-tag"
+          Value: !Sub "${RepoName}-${EnvType}-shared1-tag"
         - Key: Environment
           Value: !Ref EnvType
