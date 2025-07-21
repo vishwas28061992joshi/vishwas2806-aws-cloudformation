@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create a basic Amazon ECR repository
+
+Resources:
+  MyECRRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: my-c-ecr-repo
+      ImageScanningConfiguration:
+        scanOnPush: true
+      Tags:
+        - Key: Name
+          Value: my-c-ecr-repo
